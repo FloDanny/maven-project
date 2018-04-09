@@ -24,8 +24,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "cp -f **/target/*.war .../Users/danny/Documents/apache-tomcat-8.5.29/webapps
-webapps"
+            sh "cp -f **/target/*.war .../Users/danny/Documents/apache-tomcat-8.5.29/webapps"
 
         }
     }     
