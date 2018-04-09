@@ -20,7 +20,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "cp **/*.war Users/danny/Documents/apache-tomcat-8.5.29/"
+            sh "cp **/*.war /Users/danny/Documents/apache-tomcat-8.5.29/"
         }
     }     
     }
