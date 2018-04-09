@@ -24,7 +24,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "scp -i vetba8gf **/target/*.war tomcat${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+            sh "scp -i vetba8gf **/target/*.war tomcat ${params.tomcat_dev}webapps"
         }
     }     
     }
