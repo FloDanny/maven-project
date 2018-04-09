@@ -17,14 +17,14 @@ stages{
         post {
             success {
                 echo 'Now Archiving...'
-                archiveArtifacts '**/*.war'
+                archiveArtifacts '**/target/*.war'
             }
         }
     }
 
     stage ('Deploy to Staging'){
         steps {
-                        sh "cp -i **/*.war tomcat@${params.tomcat_dev}/webapps"
+                        sh "cp -i **/target/*.war tomcat@${params.tomcat_dev}/webapps"
 
         }
     }     
