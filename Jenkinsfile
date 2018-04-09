@@ -18,9 +18,18 @@ stages{
         }
     }
 
-    stage ('Deploy to Staging'){
-        steps {
-            build 'deploy-to-staging'
+    stage ('Deployments'){
+        parallel{
+            stage ('Deploy to Staging'){
+                steps {
+                    build 'DeployToStaging'
+                }
+            } 
+            stage ('Checkstyle Test'){
+                steps {
+                    build 'CheckstyleMaven'
+                }
+            }
         }
       }     
     }
