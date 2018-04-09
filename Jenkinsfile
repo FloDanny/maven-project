@@ -24,7 +24,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "cp -R **/target/*.war tomcat ${params.tomcat_dev}/webapps"
+            sh "cp **/target/*.war ${params.tomcat_dev}/webapps"
         }
     }     
     }
