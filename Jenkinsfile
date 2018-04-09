@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'tomcat_dev', defaultValue: 'localhost', description: 'Staging Server')
+        string(name: 'tomcat_dev', defaultValue: 'http://localhost:8090', description: 'Staging Server')
     }   
  
     tools {
@@ -24,7 +24,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "cp -i **/target/*.war /Users/danny/Documents/apache-tomcat-8.5.29/webapps"
+            sh "scp -i vetba8gf **/target/*.war tomcat${params.tomcat_dev}:/var/lib/tomcat7/webapps"
         }
     }     
     }
