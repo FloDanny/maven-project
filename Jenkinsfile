@@ -24,7 +24,7 @@ stages{
 
     stage ('Deploy to Staging'){
         steps {
-            sh "scp -i **/target/*.war tomcat ${params.tomcat_dev}webapps"
+            sh "scp -i **/target/*.war tomcat ${params.tomcat_dev}/webapps"
         }
     }     
     }
