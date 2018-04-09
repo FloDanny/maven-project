@@ -22,11 +22,11 @@ stages{
 
             stage ('Deploy to Staging'){
                     steps {
-                        sh "cp -i **/target/*.war localhost@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        sh "cp -i **/target/*.war ${params.tomcat_dev}:/Users/danny/Documents/apache-tomcat-8.5.29/webapps"
                     }
                 }
 
-
+            }      
         }
     }
 }
