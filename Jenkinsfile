@@ -1,5 +1,8 @@
 pipeline {
     agent any
+
+parameters {
+         string(name: 'tomcat_dev', defaultValue: 'localhost', description: 'Staging Server')
  
     tools {
         maven 'localMAVEN'
@@ -16,6 +19,14 @@ stages{
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
+
+            stage ('Deploy to Staging'){
+                    steps {
+                        sh "cp -i **/target/*.war localhost@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                    }
+                }
+
+
         }
     }
 }
